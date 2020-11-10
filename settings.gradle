@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "OlutApp"
+rootProject.name = "OlutApp_v2"

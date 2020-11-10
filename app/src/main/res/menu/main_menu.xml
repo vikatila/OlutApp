@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/Menu"
+        android:icon="@drawable/ic_micon"
+        android:title="Menu"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/Oluet"
+        android:title="Oluet"
+        app:showAsAction="never" />
+    <item android:id="@+id/Ravintolat"
+        android:title="Ravintolat"
+        app:showAsAction="never" />
+    <item android:id="@+id/Suositut"
+        android:title="Suositut Oluet"
+        app:showAsAction="never" />
+    <item android:id="@+id/Suosikit"
+        android:title="Omat Suosikit"
+        app:showAsAction="never" />
+    <item android:id="@+id/Chat"
+        android:title="Chat"
+        app:showAsAction="never" />
+
+</menu>

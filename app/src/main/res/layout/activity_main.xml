@@ -24,6 +24,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="50dp"
+        android:onClick="onClickBtn"
         android:text="Testinappula"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

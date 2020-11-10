@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this,OluetActivity.class);
             startActivity(intent);
             return true;
+
         }
         else
         if (id == R.id.Ravintolat) {

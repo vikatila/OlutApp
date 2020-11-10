@@ -1,4 +1,4 @@
-package com.example.olutapp;
+package com.example.olutapp_v2;
 
 import org.junit.Test;
 

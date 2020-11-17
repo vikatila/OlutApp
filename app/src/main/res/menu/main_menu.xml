@@ -4,22 +4,22 @@
 
     <item android:id="@+id/Menu"
         android:icon="@drawable/ic_micon"
-        android:title="Menu"
+        android:title="@string/menu"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/Oluet"
-        android:title="Oluet"
+        android:title="@string/menu_oluet"
         app:showAsAction="never" />
     <item android:id="@+id/Ravintolat"
-        android:title="Ravintolat"
+        android:title="@string/menu_ravintolat"
         app:showAsAction="never" />
     <item android:id="@+id/Suositut"
-        android:title="Suositut Oluet"
+        android:title="@string/menu_suositut"
         app:showAsAction="never" />
     <item android:id="@+id/Suosikit"
-        android:title="Omat Suosikit"
+        android:title="@string/menu_suosikit"
         app:showAsAction="never" />
     <item android:id="@+id/Chat"
-        android:title="Chat"
+        android:title="@string/menu_chat"
         app:showAsAction="never" />
 
 </menu>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OlutApp_v2</string>
+    <string name="app_name">OlutApp</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -9,4 +9,22 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="etusivu">"Etusivu"</string>
+    <string name="suositeltavat_oluet">"Suositeltuja oluita"</string>
+    <string name="suositeltavat_ravintolat">"Suositeltuja ravintoloita"</string>
+    <string name="button_kirjaudu_ulos">"Kirjaudu ulos"</string>
+    <string name="oluet">"Oluet"</string>
+    <string name="button_satunnainen_olut">"Satunnainen olut"</string>
+    <string name="ravintolat">"Ravintolat"</string>
+    <string name="kirjaudu_sisaan">"Kirjaudu sisään"</string>
+    <string name="chat">"Chat"</string>
+    <string name="suosikit">"Suosikit"</string>
+    <string name="suositut">"Suositut"</string>
+    <string name="menu">"Menu"</string>
+    <string name="menu_oluet">"Oluet"</string>
+    <string name="menu_ravintolat">"Ravintolat"</string>
+    <string name="menu_suositut">"Suositut oluet"</string>
+    <string name="menu_suosikit">"Omat suosikit"</string>
+    <string name="menu_chat">"Chat"</string>
+
 </resources>

@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                 else
                                 {
 
-                                    Toast.makeText(LoginActivity.this,"Tarkista sähköpostiosoite tai salasana",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this,"Tarkista sähköpostiosoite tai salasana",Toast.LENGTH_SHORT).show();
                                     mLoadingBar.dismiss();
 
                                 }

@@ -57,6 +57,18 @@ public class OluetActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+        else
+        if (id == R.id.logOut) {
+            Intent intent = new Intent(OluetActivity.this, LoginActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else
+        if (id == R.id.Etusivu) {
+            Intent intent = new Intent(OluetActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
 
     }

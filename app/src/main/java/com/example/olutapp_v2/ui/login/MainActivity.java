@@ -19,6 +19,7 @@ import com.example.olutapp_v2.DatabaseHelper;
 import com.example.olutapp_v2.OluetActivity;
 import com.example.olutapp_v2.R;
 import com.example.olutapp_v2.RavintolatActivity;
+import com.example.olutapp_v2.StorageHelper;
 import com.example.olutapp_v2.RegisterActivity;
 import com.example.olutapp_v2.SuosikitActivity;
 import com.example.olutapp_v2.SuositutActivity;
@@ -26,6 +27,7 @@ import com.example.olutapp_v2.data.Beer;
 import com.example.olutapp_v2.data.Restaurant;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +38,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         DatabaseHelper db = new DatabaseHelper();
-        db.getBeer(1).observe(this, new Observer<Beer>(){
+        final StorageHelper storageHelper = new StorageHelper();
+        Beer beerToInsert = new Beer();
+        beerToInsert.Name = "Lapin Kulta";
+        beerToInsert.Alcohol = 5.6;
+        beerToInsert.Bitterness = 45;
+        beerToInsert.Flavors = "Spicy, lemon";
+        beerToInsert.Brewery = 1;
+        beerToInsert.Type = "Lager";
+        db.insertBeer(beerToInsert);
+        /*db.getBeer(1).observe(this, new Observer<Beer>(){
             @Override
             public void onChanged(Beer beer){
                 Log.d("Observer", "Passed " + beer.Name);
+                for (String path: beer.Images
+                     ) {
+                    File imagePath = storageHelper.downloadImage(path);
+                    Log.d("Download image", path);
+                    storageHelper.uploadImage(imagePath.getPath(), "Lager/test.jpg");
+                }
             }
         });
         db.getRestaurant(1).observe(this, new Observer<Restaurant>() {
@@ -59,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(ArrayList<String> strings) {
                 Log.d("Observer", "Passed");
             }
-        });
+        });*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }

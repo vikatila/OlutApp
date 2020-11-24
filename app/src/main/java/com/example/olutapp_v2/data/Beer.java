@@ -9,7 +9,7 @@ public class Beer {
     public ArrayList<Review> Reviews;
     public Integer Brewery;
     public String Type;
-    public Integer _ID;
+    public String _ID;
     public String Flavors;
     public ArrayList<String> Images;
 

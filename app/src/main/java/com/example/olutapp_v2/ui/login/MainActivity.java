@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.olutapp_v2.ChatActivity;
 import com.example.olutapp_v2.DatabaseHelper;
@@ -19,10 +20,12 @@ import com.example.olutapp_v2.OluetActivity;
 import com.example.olutapp_v2.R;
 import com.example.olutapp_v2.RavintolatActivity;
 import com.example.olutapp_v2.StorageHelper;
+import com.example.olutapp_v2.RegisterActivity;
 import com.example.olutapp_v2.SuosikitActivity;
 import com.example.olutapp_v2.SuositutActivity;
 import com.example.olutapp_v2.data.Beer;
 import com.example.olutapp_v2.data.Restaurant;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,13 +120,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
+        else
+        if (id == R.id.logOut) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            return true;
+        }
             return super.onOptionsItemSelected(item);
 
-    }
-
-    public void out(View view){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 
 

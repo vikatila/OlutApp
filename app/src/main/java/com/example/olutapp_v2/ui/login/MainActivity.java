@@ -3,17 +3,23 @@ package com.example.olutapp_v2.ui.login;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.olutapp_v2.ChatActivity;
 import com.example.olutapp_v2.DatabaseHelper;
 import com.example.olutapp_v2.OluetActivity;
@@ -25,19 +31,46 @@ import com.example.olutapp_v2.SuosikitActivity;
 import com.example.olutapp_v2.SuositutActivity;
 import com.example.olutapp_v2.data.Beer;
 import com.example.olutapp_v2.data.Restaurant;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Context;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
+    RecyclerView firstrecyclerView;
+    MyAdapter adapter1;
     FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        DatabaseHelper db = new DatabaseHelper();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        firstrecyclerView = findViewById(R.id.recyclerView);
+
+
+        firstrecyclerView.setAdapter(adapter1);
+        firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        FirebaseRecyclerOptions<Model> options =
+                new FirebaseRecyclerOptions.Builder<Model> ()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Recommended"), Model.class)
+                        .build();
+
+        adapter1 = new MyAdapter(options);
+        firstrecyclerView.setAdapter(adapter1);
+
+
+
+     /*   DatabaseHelper db = new DatabaseHelper();
         final StorageHelper storageHelper = new StorageHelper();
         Beer beerToInsert = new Beer();
         beerToInsert.Name = "Lapin Kulta";
@@ -46,19 +79,28 @@ public class MainActivity extends AppCompatActivity {
         beerToInsert.Flavors = "Spicy, lemon";
         beerToInsert.Brewery = 1;
         beerToInsert.Type = "Lager";
-        db.insertBeer(beerToInsert);
-        /*db.getBeer(1).observe(this, new Observer<Beer>(){
+       /* db.insertBeer(beerToInsert); */
+     /*   db.getBeer(1).observe(this, new Observer<Beer>(){
             @Override
             public void onChanged(Beer beer){
                 Log.d("Observer", "Passed " + beer.Name);
+                ((TextView)findViewById(R.id.olut1_Text)).setText(beer.Name);
+
                 for (String path: beer.Images
                      ) {
                     File imagePath = storageHelper.downloadImage(path);
                     Log.d("Download image", path);
-                    storageHelper.uploadImage(imagePath.getPath(), "Lager/test.jpg");
+                    ImageView img =  findViewById(R.id.olut1_Image);
+
+                    Uri imgUri = Uri.fromFile(imagePath);
+                    img.setImageURI(imgUri);
+
+                   storageHelper.uploadImage(imagePath.getPath(), "Lager/test.jpg");
                 }
             }
-        });
+        }); */
+
+        /*
         db.getRestaurant(1).observe(this, new Observer<Restaurant>() {
             @Override
             public void onChanged(Restaurant restaurant) {
@@ -77,9 +119,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Observer", "Passed");
             }
         });*/
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
     }
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -130,5 +175,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter1.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter1.stopListening();
+    }
 
 }

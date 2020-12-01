@@ -4,7 +4,9 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
+import com.example.olutapp_v2.data.Beer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -21,10 +23,10 @@ public class StorageHelper {
 
     public File downloadImage(String path)
     {
-        storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(path);
-        File localFile =  null;
+       storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(path);
+         File localFile =  null;
         try {
-            localFile = File.createTempFile("beerImg", "jpg");
+            localFile = File.createTempFile("beerimg", "jpg");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,6 +42,7 @@ public class StorageHelper {
                 Log.d("Download image error: ", e.getMessage());
             }
         });
+
 
         return localFile;
     }

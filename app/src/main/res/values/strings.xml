@@ -27,4 +27,18 @@
     <string name="menu_suosikit">"Omat suosikit"</string>
     <string name="menu_chat">"Chat"</string>
     <string name="menu_logOut">"Kirjaudu ulos"</string>
+    <string-array name="suositellut_oluet">
+        <item>Aura Tumma</item>
+        <item>Karjala IV</item>
+        <item>San Miguel Fresca</item>
+        <item>Stella Artois</item>
+    </string-array>
+    <string-array name="suositellut_ravintolat">
+        <item>St. Michael</item>
+        <item>Kuluma</item>
+        <item>Oluthuone Leskinen</item>
+        <item>Tuisku Pub</item>
+    </string-array>
+
+
 </resources>

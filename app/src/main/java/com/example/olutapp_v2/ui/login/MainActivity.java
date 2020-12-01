@@ -44,8 +44,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView firstrecyclerView;
+    RecyclerView firstrecyclerView, secondrecyclerView;
     MyAdapter adapter1;
+    MyAdapter2 adapter2;
     FirebaseAuth mAuth;
 
     @Override
@@ -54,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         firstrecyclerView = findViewById(R.id.recyclerView);
+        secondrecyclerView = findViewById(R.id.recyclerview2);
 
 
-        firstrecyclerView.setAdapter(adapter1);
-        firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         FirebaseRecyclerOptions<Model> options =
@@ -65,8 +65,20 @@ public class MainActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Recommended"), Model.class)
                         .build();
 
+        firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter1 = new MyAdapter(options);
         firstrecyclerView.setAdapter(adapter1);
+
+
+        FirebaseRecyclerOptions<ModelR> options1 = new FirebaseRecyclerOptions.Builder<ModelR>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("RecRestaurants"), ModelR.class)
+                .build();
+
+
+
+        secondrecyclerView.setLayoutManager((new LinearLayoutManager(this)));
+        adapter2 = new MyAdapter2(options1);
+        secondrecyclerView.setAdapter(adapter2);
 
 
 
@@ -179,12 +191,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         adapter1.startListening();
+        adapter2.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         adapter1.stopListening();
+        adapter2.stopListening();
     }
+
 
 }

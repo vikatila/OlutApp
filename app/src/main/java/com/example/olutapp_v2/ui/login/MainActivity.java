@@ -2,6 +2,7 @@ package com.example.olutapp_v2.ui.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     MyAdapter2 adapter2;
     FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         firstrecyclerView = findViewById(R.id.recyclerView);
         secondrecyclerView = findViewById(R.id.recyclerview2);
-
-
 
 
         FirebaseRecyclerOptions<Model> options =
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
         secondrecyclerView.setLayoutManager((new LinearLayoutManager(this)));
         adapter2 = new MyAdapter2(options1);
         secondrecyclerView.setAdapter(adapter2);
+
+
 
 
 

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
-    android:layout_width="wrap_content">
+    android:layout_width="wrap_content"
+    android:onClick="naytaPopUp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
@@ -13,9 +14,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:checkable="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:checkable="false"
         app:cardBackgroundColor="@color/colorLightBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background"
-                tools:ignore="VectorDrawableCompat" />
+                tools:ignore="VectorDrawableCompat"
+                />
 
             <TextView
                 android:id="@+id/olut1_Text"
@@ -61,7 +63,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/olut1_Image"
                 app:layout_constraintTop_toTopOf="@+id/olut1_Image"
-                app:layout_constraintVertical_bias="0.648" />
+                app:layout_constraintVertical_bias="0.648"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

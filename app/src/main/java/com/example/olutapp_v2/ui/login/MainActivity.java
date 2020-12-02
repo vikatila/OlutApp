@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +44,7 @@ import java.util.List;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {                      // Lisätty "PopupMenu.OnMenuItemClickListener" popupmenua varten
 
     RecyclerView firstrecyclerView, secondrecyclerView;
     MyAdapter adapter1;
@@ -202,6 +203,43 @@ public class MainActivity extends AppCompatActivity {
         adapter1.stopListening();
         adapter2.stopListening();
     }
+
+
+
+
+
+    public void naytaPopUp(View v){                     // metodi popupmenun näyttämiseen
+        PopupMenu popup = new PopupMenu(this,v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.item1:
+                Toast.makeText(this, "Annoit arvosanaksi n", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.item2:
+                Toast.makeText(this, "Lisätty suosikkeihin", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.item3:
+                Toast.makeText(this, "Jotain ihan muuta", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return false;
+
+        }
+    }
+
+
+
 
 
 }

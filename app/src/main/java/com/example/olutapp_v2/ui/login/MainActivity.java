@@ -85,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
 
+
+
+
      /*   DatabaseHelper db = new DatabaseHelper();
         final StorageHelper storageHelper = new StorageHelper();
         Beer beerToInsert = new Beer();
@@ -214,6 +217,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.inflate(R.menu.popup_menu);
         popup.show();
     }
+
+
 
 
     @Override

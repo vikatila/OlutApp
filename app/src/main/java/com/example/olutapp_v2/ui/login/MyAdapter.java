@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.olutapp_v2.BeerClickedActivity;
 import com.example.olutapp_v2.OluetActivity;
 import com.example.olutapp_v2.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -54,6 +55,9 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Model,MyAdapter.myviewhol
     @NonNull
     @Override
     public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_row,parent,false);
 
         view.setOnClickListener(new View.OnClickListener()
@@ -63,6 +67,13 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Model,MyAdapter.myviewhol
             {
                 int currentPosition = getClickedPosition(view);
                 Log.d("DEBUG", "Klikkasit olutta: " + currentPosition);
+
+                // Avaa BeerClickedActivityn klikattaessa
+                Intent BeerClickedIntent = new Intent(view.getContext(), BeerClickedActivity.class);
+                // Lähettää currentPositionin tuolle toiselle activitylle
+                BeerClickedIntent.putExtra("currentPosition", currentPosition);
+
+                view.getContext().startActivity(BeerClickedIntent);
 
 
             }
@@ -75,6 +86,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Model,MyAdapter.myviewhol
     {
         ImageView img;
         TextView name;
+       
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);

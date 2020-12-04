@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
+import com.example.olutapp_v2.ui.login.OluetActivity;
 
 public class SuositutActivity extends AppCompatActivity {
 

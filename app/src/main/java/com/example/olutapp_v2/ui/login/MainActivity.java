@@ -1,6 +1,11 @@
 package com.example.olutapp_v2.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
+import androidx.cardview.widget.CardView;
+import androidx.lifecycle.Observer;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +14,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.example.olutapp_v2.ChatActivity;
 import com.example.olutapp_v2.R;
@@ -20,12 +34,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {                      // Lisätty "PopupMenu.OnMenuItemClickListener" popupmenua varten
 
     RecyclerView firstrecyclerView, secondrecyclerView;
     MyAdapter adapter1;
     MyAdapter2 adapter2;
     FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         firstrecyclerView = findViewById(R.id.recyclerView);
         secondrecyclerView = findViewById(R.id.recyclerview2);
-
-
 
 
         FirebaseRecyclerOptions<Model> options =
@@ -57,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         secondrecyclerView.setLayoutManager((new LinearLayoutManager(this)));
         adapter2 = new MyAdapter2(options1);
         secondrecyclerView.setAdapter(adapter2);
+
+
+
+
+
 
 
 
@@ -178,6 +196,45 @@ public class MainActivity extends AppCompatActivity {
         adapter1.stopListening();
         adapter2.stopListening();
     }
+
+
+
+
+
+    public void naytaPopUp(View v){                     // metodi popupmenun näyttämiseen
+        PopupMenu popup = new PopupMenu(this,v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.popup_menu);
+        popup.show();
+    }
+
+
+
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.item1:
+                Toast.makeText(this, "Annoit arvosanaksi n", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.item2:
+                Toast.makeText(this, "Lisätty suosikkeihin", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.item3:
+                Toast.makeText(this, "Jotain ihan muuta", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return false;
+
+        }
+    }
+
+
+
 
 
 }

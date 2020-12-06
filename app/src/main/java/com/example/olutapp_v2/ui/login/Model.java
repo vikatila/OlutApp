@@ -2,16 +2,17 @@ package com.example.olutapp_v2.ui.login;
 
 public class Model {
 
-    String Name, Images;
+    String Name, Images, Review; //reviewiä varten haetaan arvosana tietokannasta
 
     Model() {
 
 
     }
 
-    public Model(String Name, String Images) {
+    public Model(String Name, String Images, String Review) {     // String "Review" arvostelun hakuun tietokannasta
         this.Name = Name;
         this.Images = Images;
+        this.Review = Review;
     }
 
     public String getName() {
@@ -29,4 +30,8 @@ public class Model {
     public void setImages(String images) {
         Images = images;
     }
+
+    public String getReview() { return Review; }
+
+    public void setReview(String review) { Review = review; }
 }

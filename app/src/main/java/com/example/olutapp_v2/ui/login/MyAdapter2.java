@@ -1,6 +1,8 @@
 package com.example.olutapp_v2.ui.login;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.olutapp_v2.BeerClickedActivity;
 import com.example.olutapp_v2.R;
+import com.example.olutapp_v2.RestaurantClickedActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.bumptech.glide.annotation.GlideModule;
@@ -47,6 +51,26 @@ public class MyAdapter2 extends FirebaseRecyclerAdapter<ModelR,MyAdapter2.myview
     @Override
     public myviewholder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_row,parent,false);
+
+        view.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                int currentPosition2 = getClickedPosition2(view);
+                Log.d("DEBUG", "Klikkasit Ravintolaa: " + currentPosition2);
+
+                // Avaa BeerClickedActivityn klikattaessa
+                Intent RestaurantClickedIntent = new Intent(view.getContext(), RestaurantClickedActivity.class);
+                // Lähettää currentPositionin tuolle toiselle activitylle
+                RestaurantClickedIntent.putExtra("currentPosition2", currentPosition2);
+
+                view.getContext().startActivity(RestaurantClickedIntent);
+
+
+            }
+        });
+
         return new myviewholder2(view);
     }
 
@@ -61,5 +85,14 @@ public class MyAdapter2 extends FirebaseRecyclerAdapter<ModelR,MyAdapter2.myview
             name=(TextView)itemView.findViewById(R.id.olut1_Text);
         }
     }
+
+    private int getClickedPosition2(View clickedView)
+    {
+        RecyclerView recyclerView2 = (RecyclerView) clickedView.getParent();
+        MyAdapter2.myviewholder2 currentViewHolder = (MyAdapter2.myviewholder2) recyclerView2.getChildViewHolder(clickedView);
+        return currentViewHolder.getAdapterPosition();
+
+    }
+
 
 }

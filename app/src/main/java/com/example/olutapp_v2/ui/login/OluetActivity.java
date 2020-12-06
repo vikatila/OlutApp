@@ -61,9 +61,9 @@ public class OluetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oluet);
-        JanoImage = findViewById(R.id.imageViewJano);
-        btJano = findViewById(R.id.janoButton);
-        etUrl = findViewById(R.id.etUrl);
+        JanoImage = findViewById(R.id.imageView5);
+        btJano = findViewById(R.id.button2);
+        etUrl = findViewById(R.id.textView4);
 
 
         btJano.setOnClickListener(new View.OnClickListener() {

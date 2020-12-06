@@ -36,8 +36,9 @@ public class BeerClickedActivity extends AppCompatActivity  {
     private int receiverBeerID;
 
     private ImageView clickedBeerImage;
-    private TextView clickedBeerName;
-    private EditText clickedBeerInfo;
+    private TextView clickedBeerName, clickedBeerAlcohol, clickedBeerInfo, clickedBeerType;
+
+
 
     private DatabaseReference BeerRef;
 
@@ -53,7 +54,9 @@ public class BeerClickedActivity extends AppCompatActivity  {
 
         clickedBeerImage = (ImageView) findViewById(R.id.ClickedOlutImage);
         clickedBeerName = (TextView) findViewById(R.id.ClickedOlut);
-        clickedBeerInfo= (EditText) findViewById(R.id.ClickedBeerInfo);
+        clickedBeerInfo= (TextView) findViewById(R.id.ClickedInfo);
+        clickedBeerAlcohol= (TextView) findViewById(R.id.ClickedAlcohol);
+        clickedBeerType= (TextView) findViewById(R.id.ClickedType);
 
         RetrieveBeerInfo();
 
@@ -67,14 +70,18 @@ public class BeerClickedActivity extends AppCompatActivity  {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
 
-                    // Tähän lisätään, mitä tietoja vastaanotetaan tietokannasta. Lisäsin tuon Info kohdan kahteen ensimmäiseen olueen.
+                    // Tähän lisätään, mitä tietoja vastaanotetaan tietokannasta.
                     String beerImage = snapshot.child("Images").getValue(String.class);
                     String beerName = snapshot.child("Name").getValue(String.class);
                     String beerInfo = snapshot.child("Info").getValue(String.class);
+                    String beerAlcohol = snapshot.child("Alcohol").getValue(String.class);
+                    String beerType = snapshot.child("Type").getValue(String.class);
 
                     Picasso.get().load(beerImage).into(clickedBeerImage);
                     clickedBeerName.setText(beerName);
                     clickedBeerInfo.setText(beerInfo);
+                    clickedBeerAlcohol.setText(beerAlcohol);
+                    clickedBeerType.setText(beerType);
 
                 }
 

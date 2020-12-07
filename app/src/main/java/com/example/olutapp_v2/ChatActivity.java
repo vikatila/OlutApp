@@ -3,13 +3,18 @@ package com.example.olutapp_v2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,22 +23,21 @@ import com.example.olutapp_v2.ui.login.MainActivity;
 
 import com.example.olutapp_v2.ui.login.OluetActivity;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
 public class ChatActivity extends AppCompatActivity {
 
-    // luodaan muuttujat
-    TextView fb_Beers,fb_Alcohol,fb_Bitterness,fb_Flavors,fb_Name,fb_Reviews,fb_Reviews_Comment,fb_Reviews_DateReview,fb_Reviews_UserID,fb_Reviews_UserName,fb_Type,fb_ID;
-    Button button_Hae_Olut;
-    DatabaseReference ref;
-
-
-    //
 
 
     @Override
@@ -42,7 +46,49 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
 
-       // ref ekaref = new DatabaseReference();
+        FloatingActionButton fab =
+                (FloatingActionButton)findViewById(R.id.fab);
+
+        displayChatMessages();
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextInputEditText input = (TextInputEditText) findViewById(R.id.input);
+
+                FirebaseDatabase.getInstance()
+                        .getReference().child("Chat")
+                        .push()
+                        .setValue(new ChatMessage(input.getText().toString(),
+                                FirebaseAuth.getInstance()
+                                        .getCurrentUser()
+                                        .getEmail())
+                        );
+
+                input.setText("");
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+                                   // ref ekaref = new DatabaseReference();
         //eventsref = ((DatabaseReference) ekaref).child("Beers");
 
         /*
@@ -77,20 +123,12 @@ public class ChatActivity extends AppCompatActivity {
             }
         });*/
 
-    }
-
-    //
-
-
-
-
 
 
     //
 
 
-
-
+    //
 
 
     public void out(View view) {
@@ -98,6 +136,9 @@ public class ChatActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -145,4 +186,48 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
-}
+    private void displayChatMessages() {
+
+        ListView listOfMessages = (ListView)findViewById(R.id.list_of_messages);
+
+        DatabaseReference chatReference = FirebaseDatabase.getInstance().getReference().child("Chat");
+
+
+        FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
+                .setLayout(R.layout.message)
+                .setQuery(chatReference, ChatMessage.class)
+                .setLifecycleOwner(this)
+                .build();
+
+
+        FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(options) {
+            @Override
+            protected void populateView(View v, ChatMessage model, int position) {
+
+                // Get references to the views of message.xml
+                TextView messageText = (TextView)v.findViewById(R.id.message_text);
+                TextView messageUser = (TextView)v.findViewById(R.id.message_user);
+                TextView messageTime = (TextView)v.findViewById(R.id.message_time);
+
+                messageText.setText(model.getMessageText());
+                messageUser.setText(model.getMessageUser());
+
+                messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)",
+                        model.getMessageTime()));
+            }
+        };
+
+        listOfMessages.setAdapter(adapter);
+
+
+
+        }
+
+
+
+
+
+    }
+
+
+

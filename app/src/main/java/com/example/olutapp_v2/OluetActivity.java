@@ -62,6 +62,7 @@ public class OluetActivity extends AppCompatActivity {
             firstrecyclerView.setAdapter(adapter1);
 
 
+
         btJano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

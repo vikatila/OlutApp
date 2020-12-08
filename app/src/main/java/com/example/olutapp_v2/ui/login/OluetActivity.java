@@ -20,7 +20,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.olutapp_v2.ChatActivity;
@@ -52,7 +54,8 @@ public class OluetActivity extends AppCompatActivity {
     TextView etUrl;
     ImageView JanoImage;
     Button btJano;
-
+    RecyclerView firstrecyclerView;
+    MyAdapter adapter1;
     private DatabaseReference mDatabase;
     public static final Random RANDOM = new Random();
 
@@ -64,6 +67,16 @@ public class OluetActivity extends AppCompatActivity {
         JanoImage = findViewById(R.id.imageView5);
         btJano = findViewById(R.id.button2);
         etUrl = findViewById(R.id.textView4);
+        firstrecyclerView = findViewById(R.id.recyclerView);
+
+            FirebaseRecyclerOptions<Model> options =
+                    new FirebaseRecyclerOptions.Builder<Model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Recommended"), Model.class)
+                            .build();
+
+            firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter1 = new MyAdapter(options);
+            firstrecyclerView.setAdapter(adapter1);
 
 
         btJano.setOnClickListener(new View.OnClickListener() {
@@ -194,8 +207,16 @@ public class OluetActivity extends AppCompatActivity {
             JanoImage.setImageBitmap(bitmap);
         }
     }
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter1.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter1.stopListening();
+    }
 
     public static int RandomBeerValue(){
         return RANDOM.nextInt(7);

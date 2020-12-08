@@ -5,6 +5,7 @@
     <item
         android:id="@+id/Etusivu"
         android:title="@string/etusivu"
+        android:icon="@drawable/baseline_home_black_18dp"
         app:showAsAction="always" />
     <item
         android:id="@+id/Menu"

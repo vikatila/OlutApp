@@ -76,7 +76,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Model,MyAdapter.myviewhol
             myviewholder.star3.setVisibility(View.VISIBLE);
             myviewholder.star4.setVisibility(View.VISIBLE);
         }
-        if (fReview > 4.5){
+        if (fReview >= 4.5){
             myviewholder.star1.setVisibility(View.VISIBLE);
             myviewholder.star2.setVisibility(View.VISIBLE);
             myviewholder.star3.setVisibility(View.VISIBLE);

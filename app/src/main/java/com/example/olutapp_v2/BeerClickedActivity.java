@@ -19,17 +19,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.olutapp_v2.data.Beer;
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
 import com.example.olutapp_v2.ui.login.Model;
 import com.example.olutapp_v2.ui.login.MyAdapter;
 import com.example.olutapp_v2.ui.login.OluetActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.jar.Attributes;
 
 public class BeerClickedActivity extends AppCompatActivity  {
 
@@ -53,6 +62,7 @@ public class BeerClickedActivity extends AppCompatActivity  {
         receiverBeerID = (int) getIntent().getExtras().get("currentPosition");
 
 
+
         clickedBeerImage = (ImageView) findViewById(R.id.ClickedOlutImage);
         clickedBeerName = (TextView) findViewById(R.id.ClickedOlut);
         clickedBeerInfo= (TextView) findViewById(R.id.ClickedInfo);
@@ -62,7 +72,11 @@ public class BeerClickedActivity extends AppCompatActivity  {
         RetrieveBeerInfo();
 
 
+
+
     }
+
+
 
     private void RetrieveBeerInfo() {
 
@@ -84,6 +98,7 @@ public class BeerClickedActivity extends AppCompatActivity  {
                     clickedBeerAlcohol.setText(beerAlcohol);
                     clickedBeerType.setText(beerType);
 
+
                 }
 
 
@@ -95,6 +110,7 @@ public class BeerClickedActivity extends AppCompatActivity  {
         });
 
     }
+
 
 
     public void out(View view) {

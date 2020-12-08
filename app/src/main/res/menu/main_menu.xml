@@ -6,11 +6,6 @@
         android:id="@+id/Etusivu"
         android:title="@string/etusivu"
         android:icon="@drawable/baseline_home_black_18dp"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/Menu"
-        android:icon="@drawable/ic_micon"
-        android:title="@string/menu"
         app:showAsAction="ifRoom" />
     <item android:id="@+id/Oluet"
         android:title="@string/menu_oluet"

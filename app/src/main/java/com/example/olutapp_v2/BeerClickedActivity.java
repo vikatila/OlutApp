@@ -2,43 +2,24 @@ package com.example.olutapp_v2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.olutapp_v2.data.Beer;
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
-import com.example.olutapp_v2.ui.login.Model;
-import com.example.olutapp_v2.ui.login.MyAdapter;
-import com.example.olutapp_v2.ui.login.OluetActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.jar.Attributes;
 
 public class BeerClickedActivity extends AppCompatActivity  {
 

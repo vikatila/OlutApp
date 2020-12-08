@@ -11,7 +11,6 @@ import android.view.View;
 
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
-import com.example.olutapp_v2.ui.login.OluetActivity;
 
 public class SuosikitActivity extends AppCompatActivity {
 
@@ -19,6 +18,7 @@ public class SuosikitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suosikit);
+
     }
 
     public void out(View view) {

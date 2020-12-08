@@ -3,9 +3,6 @@ package com.example.olutapp_v2.ui.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import androidx.cardview.widget.CardView;
-import androidx.lifecycle.Observer;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,10 +14,7 @@ import android.view.MenuItem;
 
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,6 +23,9 @@ import com.example.olutapp_v2.R;
 import com.example.olutapp_v2.RavintolatActivity;
 import com.example.olutapp_v2.SuosikitActivity;
 import com.example.olutapp_v2.SuositutActivity;
+import com.example.olutapp_v2.OluetActivity;
+import com.example.olutapp_v2.data.model.Model;
+import com.example.olutapp_v2.data.model.ModelR;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -144,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onOptionsItemSelected (MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.Oluet) {
-            Intent intent = new Intent(MainActivity.this,OluetActivity.class);
+            Intent intent = new Intent(MainActivity.this, OluetActivity.class);
             startActivity(intent);
             return true;
 

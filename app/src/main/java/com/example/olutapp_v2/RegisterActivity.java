@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setTitle("OlutApp");
 
         btn=findViewById(R.id.allreadyRegistered);
         inputUsername=findViewById(R.id.inputUsername);

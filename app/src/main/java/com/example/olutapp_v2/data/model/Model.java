@@ -1,4 +1,4 @@
-package com.example.olutapp_v2.ui.login;
+package com.example.olutapp_v2.data.model;
 
 public class Model {
 

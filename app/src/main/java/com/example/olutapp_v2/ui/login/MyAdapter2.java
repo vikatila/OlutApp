@@ -1,6 +1,5 @@
 package com.example.olutapp_v2.ui.login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,17 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.olutapp_v2.BeerClickedActivity;
 import com.example.olutapp_v2.R;
 import com.example.olutapp_v2.RestaurantClickedActivity;
+import com.example.olutapp_v2.data.model.ModelR;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
-
 
 
 public class MyAdapter2 extends FirebaseRecyclerAdapter<ModelR,MyAdapter2.myviewholder2>

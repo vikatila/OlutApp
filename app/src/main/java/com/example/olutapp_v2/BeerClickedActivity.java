@@ -2,21 +2,19 @@ package com.example.olutapp_v2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+
+import com.example.olutapp_v2.ui.login.LoginActivity;
+import com.example.olutapp_v2.ui.login.MainActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.olutapp_v2.data.Beer;

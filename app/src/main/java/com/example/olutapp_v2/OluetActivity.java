@@ -1,49 +1,31 @@
-package com.example.olutapp_v2.ui.login;
+package com.example.olutapp_v2;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.Observable;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.olutapp_v2.ChatActivity;
-import com.example.olutapp_v2.R;
-import com.example.olutapp_v2.RavintolatActivity;
-import com.example.olutapp_v2.SuosikitActivity;
-import com.example.olutapp_v2.SuositutActivity;
+import com.example.olutapp_v2.data.model.Model;
+import com.example.olutapp_v2.ui.login.LoginActivity;
+import com.example.olutapp_v2.ui.login.MainActivity;
+import com.example.olutapp_v2.ui.login.MyAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FileDownloadTask;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Random;
@@ -64,6 +46,7 @@ public class OluetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oluet);
+
         JanoImage = findViewById(R.id.imageView5);
         btJano = findViewById(R.id.button2);
         etUrl = findViewById(R.id.textView4);
@@ -77,6 +60,7 @@ public class OluetActivity extends AppCompatActivity {
             firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
             adapter1 = new MyAdapter(options);
             firstrecyclerView.setAdapter(adapter1);
+
 
 
         btJano.setOnClickListener(new View.OnClickListener() {

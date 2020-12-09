@@ -5,36 +5,34 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorChineseSilver"
+    android:background="@drawable/tausta2"
     tools:context=".ui.login.LoginActivity">
+
 
     <TextView
         android:id="@+id/logIn"
         style="@style/TextHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="Kirjautuminen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="0.137" />
 
     <EditText
         android:id="@+id/inputEmail"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="testi2@testi.fi"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/logIn"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/logIn"
-        app:layout_constraintTop_toBottomOf="@+id/logIn"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintTop_toBottomOf="@+id/logIn" />
 
     <EditText
         android:id="@+id/inputPassword"
@@ -56,6 +54,7 @@
         android:layout_marginTop="16dp"
         android:onClick="goRegister"
         android:text="Rekisteröidy"
+        style="@style/TextHeader"
         app:layout_constraintEnd_toEndOf="@+id/btnlogin"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/btnlogin"

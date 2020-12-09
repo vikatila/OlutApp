@@ -22,6 +22,7 @@ import com.example.olutapp_v2.data.model.Model;
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
 import com.example.olutapp_v2.ui.login.MyAdapter;
+import com.example.olutapp_v2.ui.login.MyAdapter3;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,7 +38,7 @@ public class OluetActivity extends AppCompatActivity {
     ImageView JanoImage;
     Button btJano;
     RecyclerView firstrecyclerView;
-    MyAdapter adapter1;
+    MyAdapter3 adapter3;
     private DatabaseReference mDatabase;
     public static final Random RANDOM = new Random();
 
@@ -54,12 +55,12 @@ public class OluetActivity extends AppCompatActivity {
 
             FirebaseRecyclerOptions<Model> options =
                     new FirebaseRecyclerOptions.Builder<Model>()
-                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Recommended"), Model.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Beers"), Model.class)
                             .build();
 
             firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter1 = new MyAdapter(options);
-            firstrecyclerView.setAdapter(adapter1);
+            adapter3 = new MyAdapter3(options);
+            firstrecyclerView.setAdapter(adapter3);
 
 
 
@@ -194,12 +195,12 @@ public class OluetActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        adapter1.startListening();
+        adapter3.startListening();
     }
     @Override
     protected void onStop() {
         super.onStop();
-        adapter1.stopListening();
+        adapter3.stopListening();
     }
 
     public static int RandomBeerValue(){

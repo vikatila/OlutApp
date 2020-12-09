@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorChineseSilver"
-    tools:context=".ui.login.MainActivity">
 
+    tools:context=".ui.login.MainActivity"
+    android:background="@drawable/tausta2">
+    <!-- android:background="@drawable/tausta2" määrittää koko kyseisen layoutin taustan -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview2"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="42dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -24,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="50dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/suositeltavat_oluet"
-        android:textSize="26sp"
-        android:textStyle="bold"
+
+        style="@style/TextMainStyle"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/suositeltavat_ravintolat"
-        android:textSize="26sp"
-        android:textStyle="bold"
+
+        style="@style/TextMainStyle"
         app:layout_constraintBottom_toTopOf="@+id/recyclerview2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorChineseSilver"
-    tools:context=".ui.login.MainActivity">
+    android:background="@drawable/tausta2"
+    tools:context=".ui.login.MainActivity"
+    >
 
 
     <ImageView
@@ -34,7 +35,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Type"
-        android:textStyle="bold"
+        style="@style/TextHeader"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +46,9 @@
 
     <TextView
         android:id="@+id/ClickedOlut"
-        android:layout_width="270dp"
-        android:layout_height="45dp"
+        style="@style/TextMainStyle"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="68dp"
@@ -56,14 +58,12 @@
         android:gravity="center_horizontal"
         android:text="Oluen nimi"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toEndOf="@+id/ClickedOlutImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/ClickedAlcohol"
@@ -74,7 +74,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginBottom="16dp"
         android:text="Alcohol"
-        android:textStyle="bold"
+        style="@style/TextHeader"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Info"
-        android:textSize="14sp"
+        style="@style/TextHeader"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.372"

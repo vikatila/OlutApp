@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tausta2"
-    tools:context=".ui.login.MainActivity"
-    >
-
+    tools:context=".BeerClickedOluetActivity">
 
     <ImageView
         android:id="@+id/ClickedOlutImage"
@@ -35,7 +32,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Type"
-        style="@style/TextHeader"
+        android:textStyle="bold"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,9 +43,8 @@
 
     <TextView
         android:id="@+id/ClickedOlut"
-        style="@style/TextMainStyle"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="68dp"
@@ -58,12 +54,14 @@
         android:gravity="center_horizontal"
         android:text="Oluen nimi"
         android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toEndOf="@+id/ClickedOlutImage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <TextView
         android:id="@+id/ClickedAlcohol"
@@ -74,7 +72,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginBottom="16dp"
         android:text="Alcohol"
-        style="@style/TextHeader"
+        android:textStyle="bold"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +91,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Info"
-        style="@style/TextHeader"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.372"
@@ -101,14 +99,6 @@
         app:layout_constraintTop_toBottomOf="@+id/ClickedAlcohol"
         app:layout_constraintVertical_bias="0.0" />
 
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ClickedInfo" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

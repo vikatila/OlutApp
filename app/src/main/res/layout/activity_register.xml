@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorChineseSilver"
+    android:background="@drawable/tausta2"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -90,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Olen jo rekisteröitynyt?"
+        style="@style/TextHeader"
         app:layout_constraintEnd_toEndOf="@+id/btnRegister"
         app:layout_constraintStart_toStartOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />

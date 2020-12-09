@@ -1,8 +1,10 @@
 package com.example.olutapp_v2.data.model;
 
+
 public class Model {
 
     String Name, Images, Review; //reviewiä varten haetaan arvosana tietokannasta
+
 
     Model() {
 
@@ -14,6 +16,8 @@ public class Model {
         this.Images = Images;
         this.Review = Review;
     }
+
+
 
     public String getName() {
         return Name;

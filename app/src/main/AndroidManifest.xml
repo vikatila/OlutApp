@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application android:theme="@style/AppTheme">
-        <activity android:name=".BeerClickedOluetActivity"></activity>
+        <activity android:name=".BeerClickedOluetActivity"/>
         <activity
             android:name=".BeerClickedActivity"
             android:label="@string/app_name" />
@@ -28,6 +28,9 @@
         <activity
             android:name=".RavintolatActivity"
             android:label="@string/app_name" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
         <activity
             android:name=".OluetActivity"
             android:label="@string/app_name" />

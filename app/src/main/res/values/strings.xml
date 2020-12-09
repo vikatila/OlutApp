@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">OlutApp</string>
     <!-- Strings related to login -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDYRJ2DTWOKeYY3VZcjFvoFP-Dg2X9T0m8</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -15,7 +16,7 @@
     <string name="button_kirjaudu_ulos">"Kirjaudu ulos"</string>
     <string name="oluet">"Oluet"</string>
     <string name="button_satunnainen_olut">"Jano!"</string>
-    <string name="ravintolat">"Ravintolat"</string>
+    <string name="ravintolat">"Lähimmät ravintolat"</string>
     <string name="kirjaudu_sisaan">"Kirjaudu sisään"</string>
     <string name="chat">"Chat"</string>
     <string name="suosikit">"Suosikit"</string>

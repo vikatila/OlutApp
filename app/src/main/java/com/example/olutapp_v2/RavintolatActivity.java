@@ -1,6 +1,7 @@
 package com.example.olutapp_v2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,19 +12,41 @@ import android.view.View;
 
 import com.example.olutapp_v2.ui.login.LoginActivity;
 import com.example.olutapp_v2.ui.login.MainActivity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class RavintolatActivity extends AppCompatActivity {
+public class RavintolatActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ravintolat);
-
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
-    public void out(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng Leskinen = new LatLng(65.012046, 25.4697536);
+        mMap.addMarker(new MarkerOptions().position(Leskinen).title("Oluthuone Leskinen"));
+        LatLng Kulma = new LatLng(65.012705, 25.4668407);
+        mMap.addMarker(new MarkerOptions().position(Kulma).title("Cafe Kuluma"));
+        LatLng Graali = new LatLng(65.0120788, 25.4652464);
+        mMap.addMarker(new MarkerOptions().position(Graali).title("Public House Graali"));
+        LatLng Hevimesta = new LatLng(65.0119253, 25.4755047);
+        mMap.addMarker(new MarkerOptions().position(Hevimesta).title("Hevimesta"));
+
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(65.01236, 25.46816),15));
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,4 +94,5 @@ public class RavintolatActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
 }

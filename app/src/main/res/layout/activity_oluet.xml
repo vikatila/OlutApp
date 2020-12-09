@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OluetActivity">
+    tools:context=".OluetActivity"
+    android:background="@drawable/tausta2">
 
 
     <Button
@@ -38,8 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/oluet"
-        android:textSize="26sp"
-        android:textStyle="bold"
+        style="@style/TextMainStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

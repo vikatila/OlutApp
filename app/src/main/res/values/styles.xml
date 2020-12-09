@@ -2,16 +2,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
         <!-- Add attributes here -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">#502E06</item>
+        <item name="colorPrimaryDark">#502E06</item>
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
 
     <!-- Text styles. -->
     <style name="TextMainStyle">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
 
     </style>
 
@@ -24,7 +25,7 @@
     </style>
 
     <style name="TextHeader" parent="TextMainStyle">
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
 
     </style>

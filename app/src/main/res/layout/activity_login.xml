@@ -29,7 +29,7 @@
         android:layout_marginTop="90dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="testi2@testi.fi"
+        android:hint="Sähköposti"
         app:layout_constraintEnd_toEndOf="@+id/logIn"
         app:layout_constraintStart_toStartOf="@+id/logIn"
         app:layout_constraintTop_toBottomOf="@+id/logIn" />
@@ -41,7 +41,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="testi123"
+        android:hint="Salasana"
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"

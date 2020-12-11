@@ -1,9 +1,9 @@
-package com.example.olutapp_v2.data.model;
-
+package com.example.olutapp_v2.data.model;   // Model.java-luokkaa käytetään suositeltujen oluiden tietojen hakemiseen tietokannasta.
+                                            //  Tämän kautta saadaan tiedot "oluet-recycler" viewille
 
 public class Model {
 
-    String Name, Images, Review; //reviewiä varten haetaan arvosana tietokannasta
+    String Name, Images, Review; // Haetaan nimi, kuvat ja arvosana
 
 
     Model() {
@@ -11,7 +11,7 @@ public class Model {
 
     }
 
-    public Model(String Name, String Images, String Review) {     // String "Review" arvostelun hakuun tietokannasta
+    public Model(String Name, String Images, String Review) {
         this.Name = Name;
         this.Images = Images;
         this.Review = Review;
@@ -21,7 +21,7 @@ public class Model {
 
     public String getName() {
         return Name;
-    }
+    }                               //get-set metodit
 
     public void setName(String name) {
         Name = name;

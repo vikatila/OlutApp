@@ -34,10 +34,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {                      // Lisätty "PopupMenu.OnMenuItemClickListener" popupmenua varten
-
-    RecyclerView firstrecyclerView, secondrecyclerView;
-    MyAdapter adapter1;
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {      // Lisätty "PopupMenu.OnMenuItemClickListener" popupmenua varten
+                                                                                                        // Pop-menua ei lopulta otettu mukaan lopulliseen versioon
+    RecyclerView firstrecyclerView, secondrecyclerView;         // viewit, joiden sisällä näytetään rullaavat listat
+    MyAdapter adapter1;          //adapterit, joita tarvitaan tietojen esittämiseen etusivulla
     MyAdapter2 adapter2;
     FirebaseAuth mAuth;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         firstrecyclerView = findViewById(R.id.recyclerView);
         secondrecyclerView = findViewById(R.id.recyclerview2);
 
-
+        //luodaan uusi tietokantaolio, jonne haetaan Firebasesta Model-luokan avulla suositellut oluet
         FirebaseRecyclerOptions<Model> options =
                 new FirebaseRecyclerOptions.Builder<Model> ()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Recommended"), Model.class)
@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         firstrecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter1 = new MyAdapter(options);
-        firstrecyclerView.setAdapter(adapter1);
+        firstrecyclerView.setAdapter(adapter1);     // asetetaan haetut tiedot adapterin avulla "firstrecyclerviewiin"
 
-
+        //luodaan uusi tietokantaolio, jonne haetaan Firebasesta ModelR-luokan avulla suositellut ravintolat
         FirebaseRecyclerOptions<ModelR> options1 = new FirebaseRecyclerOptions.Builder<ModelR>()
                 .setQuery(FirebaseDatabase.getInstance().getReference().child("RecRestaurants"), ModelR.class)
                 .build();
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         secondrecyclerView.setLayoutManager((new LinearLayoutManager(this)));
         adapter2 = new MyAdapter2(options1);
-        secondrecyclerView.setAdapter(adapter2);
+        secondrecyclerView.setAdapter(adapter2);    // asetetaan haetut tiedot adapterin avulla "secondrecyclerviewiin"
 
 
 
@@ -134,14 +134,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {     //luodaan main menu
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.main_menu, menu);       // täytetään menu
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
+    public boolean onOptionsItemSelected (MenuItem item) {      // Täytetään menu-valikko eri itemeillä
         int id = item.getItemId();
         if (id == R.id.Oluet) {
             Intent intent = new Intent(MainActivity.this, OluetActivity.class);
@@ -183,14 +183,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-    @Override
+    @Override                       //metodi, jolla adapterit käynnistetään
     protected void onStart() {
         super.onStart();
         adapter1.startListening();
         adapter2.startListening();
     }
 
-    @Override
+    @Override                       //metodi, jolla adapterit pysäytetään
     protected void onStop() {
         super.onStop();
         adapter1.stopListening();
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
 
-    public void naytaPopUp(View v){                     // metodi popupmenun näyttämiseen
+    public void naytaPopUp(View v){                     // metodi popupmenun näyttämiseen. Ei mukana sovelluksessa tällä hetkellä
         PopupMenu popup = new PopupMenu(this,v);
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.popup_menu);
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
 
 
-    @Override
+    @Override                                           // metodi, jolla popup-menu voidaan näyttää. Ei mukana sovelluksessa tällä hetkellä
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
 

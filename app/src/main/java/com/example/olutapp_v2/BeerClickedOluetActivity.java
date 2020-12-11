@@ -29,6 +29,7 @@ public class BeerClickedOluetActivity extends AppCompatActivity {
     private ImageView clickedBeerImage;
     private TextView clickedBeerName, clickedBeerAlcohol, clickedBeerInfo, clickedBeerType;
 
+    // Viittaus Firebasen tietokantaan tällä muuttujalla
     private DatabaseReference BeerRef;
 
     @Override
@@ -41,7 +42,7 @@ public class BeerClickedOluetActivity extends AppCompatActivity {
         // Hakee tiedot adapterilta ja vastaanottaa tuon positiontiedon
         receiverBeerID = (int) getIntent().getExtras().get("currentPosition");
 
-
+        // Määritellään layoutin kuvat ja tekstit johon tiedot lisätään
         clickedBeerImage = findViewById(R.id.ClickedOlutImage);
         clickedBeerName = findViewById(R.id.ClickedOlut);
         clickedBeerInfo= findViewById(R.id.ClickedInfo);
@@ -56,6 +57,7 @@ public class BeerClickedOluetActivity extends AppCompatActivity {
 
     }
 
+    // Metodi jolla haetaan oluen tiedot tietokannasta
     private void RetrieveBeerInfo() {
 
         BeerRef.child(String.valueOf(receiverBeerID)).addValueEventListener(new ValueEventListener() {

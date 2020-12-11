@@ -47,11 +47,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
+    // Syötetään kenttiin Sähköposti ja salasana
     private void checkCredentials(){
         final String email=inputEmail.getText().toString();
         final String password=inputPassword.getText().toString();
 
+    // Tarkistetaan että ne ovat oikeanlaisia
         if (email.isEmpty() || !email.contains("@"))
         {
             showError(inputEmail,"Väärä sähköposti!");
@@ -61,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             showError(inputPassword,"Salasanassa pitää olla vähintään 5 merkkiä!");
         }
         else
+
+            //Kirjautuminen ja sähköpostin ja salasanan tarkistaminen tietokannasta
             {
                         mLoadingBar.setTitle("Kirjaudutaan");
                         mLoadingBar.setMessage("Hetkinen...");
@@ -100,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
+            //siirtyminen rekisteröitymiseen
     public void goRegister(View view){
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);

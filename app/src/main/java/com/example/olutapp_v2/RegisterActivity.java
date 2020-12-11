@@ -47,13 +47,14 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
-
+        //Otetaan käyttäjän tiedot vastaan
     private void checkCredentials(){
         String username=inputUsername.getText().toString();
         String email=inputEmail.getText().toString();
         String password=inputPassword.getText().toString();
         String conformPassword=inputConformPassword.getText().toString();
 
+        // tarkistetaan että tiedot ovat oikeanlaisia/kelvollisia
         if (username.isEmpty() || username.length()<4)
         {
             showError(inputUsername,"Käyttäjänimessä pitää olla vähintään 4 merkkiä");
@@ -77,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
             mLoadingBar.setCanceledOnTouchOutside(false);
             mLoadingBar.show();
 
+            //luodaan käyttäjä tietokantaan
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

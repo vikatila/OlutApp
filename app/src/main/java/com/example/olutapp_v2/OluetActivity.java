@@ -53,6 +53,9 @@ public class OluetActivity extends AppCompatActivity {
         etUrl = findViewById(R.id.textView4);
         firstrecyclerView = findViewById(R.id.recyclerView);
 
+
+        // Haetaan recycler viewiin tiedot tietokannasta
+        // käytetään adapteria viewin rakentamisessa
             FirebaseRecyclerOptions<Model> options =
                     new FirebaseRecyclerOptions.Builder<Model>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("Beers"), Model.class)
@@ -62,7 +65,7 @@ public class OluetActivity extends AppCompatActivity {
             adapter3 = new MyAdapter3(options);
             firstrecyclerView.setAdapter(adapter3);
 
-
+        // suoritetaan tietokanta haku riippuen arvonnan tuloksesta
 
         btJano.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +126,7 @@ public class OluetActivity extends AppCompatActivity {
 
 
     }
-
+            //valikko
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -166,7 +169,7 @@ public class OluetActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
-
+        //Ladataan kuva tietokannasta
     private class LoadImage extends AsyncTask<String, Void, Bitmap> {
         ImageView imageView;
 
@@ -202,7 +205,7 @@ public class OluetActivity extends AppCompatActivity {
         super.onStop();
         adapter3.stopListening();
     }
-
+        //Suoritetaan arvonta
     public static int RandomBeerValue(){
         return RANDOM.nextInt(7);
 

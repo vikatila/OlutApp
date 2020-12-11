@@ -27,6 +27,7 @@ public class RavintolatActivity extends AppCompatActivity implements OnMapReadyC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ravintolat);
+        //Haetaan kartta
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -35,6 +36,8 @@ public class RavintolatActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        // Luodaan merkinnät ravintoloista karttanäkymään
 
         LatLng Leskinen = new LatLng(65.012046, 25.4697536);
         mMap.addMarker(new MarkerOptions().position(Leskinen).title("Oluthuone Leskinen"));
@@ -45,9 +48,11 @@ public class RavintolatActivity extends AppCompatActivity implements OnMapReadyC
         LatLng Hevimesta = new LatLng(65.0119253, 25.4755047);
         mMap.addMarker(new MarkerOptions().position(Hevimesta).title("Hevimesta"));
 
-
+        // asetetaan karttanäkymä oulunkeskustaan halutulla skaalalla
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(65.01236, 25.46816),15));
     }
+
+            //valikko
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

@@ -1,3 +1,4 @@
+//############### tämä java-luokka ei ole mukana lopullisessa sovelluksessa ####################
 package com.example.olutapp_v2.data;
 
 import com.example.olutapp_v2.data.model.LoggedInUser;

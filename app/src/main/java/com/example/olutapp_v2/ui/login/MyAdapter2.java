@@ -18,6 +18,7 @@ import com.example.olutapp_v2.data.model.ModelR;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+// Samanlainen kuin MyAdapter, piti tehdä uusi adapteri ravintolanäkymälle
 
 public class MyAdapter2 extends FirebaseRecyclerAdapter<ModelR,MyAdapter2.myviewholder2>
 

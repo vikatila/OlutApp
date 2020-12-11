@@ -33,7 +33,7 @@ public class BeerClickedActivity extends AppCompatActivity  {
     private TextView clickedBeerName, clickedBeerAlcohol, clickedBeerInfo, clickedBeerType;
 
 
-
+    // Viittaus Firebasen tietokantaan tällä muuttujalla
     private DatabaseReference BeerRef;
 
     @Override
@@ -42,15 +42,16 @@ public class BeerClickedActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_beer_clicked);
         // Referenssi tietokantaan
         BeerRef = FirebaseDatabase.getInstance().getReference().child("Recommended");
-        // Hakee tiedot adapterilta ja vastaanottaa tuon positiontiedon
+        // Hakee tiedot adapterilta ja vastaanottaa recyclerviewin positiontiedon
         receiverBeerID = (int) getIntent().getExtras().get("currentPosition");
 
-
+        // Määritellään layoutin kuvat ja tekstit joihin tiedot lisätään
         clickedBeerImage = (ImageView) findViewById(R.id.ClickedOlutImage);
         clickedBeerName = (TextView) findViewById(R.id.ClickedOlut);
         clickedBeerInfo= (TextView) findViewById(R.id.ClickedInfo);
         clickedBeerAlcohol= (TextView) findViewById(R.id.ClickedAlcohol);
         clickedBeerType= (TextView) findViewById(R.id.ClickedType);
+
 
         RetrieveBeerInfo();
 
@@ -59,7 +60,7 @@ public class BeerClickedActivity extends AppCompatActivity  {
     }
 
 
-
+    // Metodi jolla haetaan oluen tiedot tietokannasta
     private void RetrieveBeerInfo() {
 
         BeerRef.child(String.valueOf(receiverBeerID)).addValueEventListener(new ValueEventListener() {

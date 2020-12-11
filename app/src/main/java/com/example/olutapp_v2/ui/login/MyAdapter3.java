@@ -19,6 +19,8 @@ import com.example.olutapp_v2.data.model.Model;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+// Samanlainen kuin MyAdapter, piti tehdä uusi adapteri, kun klikataan olutta OluetActivityn kautta
+
 public class MyAdapter3 extends FirebaseRecyclerAdapter<Model,MyAdapter3.myviewholder>
 
 

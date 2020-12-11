@@ -38,8 +38,9 @@ public class ChatActivity extends AppCompatActivity {
         FloatingActionButton fab =
                 (FloatingActionButton)findViewById(R.id.fab);
 
+        // Tässä vaiheessa viestit näytetään ruudulla, joita tietokannassa on jo valmiina
         displayChatMessages();
-
+        // Floating action buttonia painettaessa TextInputEditTextin sisältö pusketaan firebasen "Chat" osioon
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +49,7 @@ public class ChatActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance()
                         .getReference().child("Chat")
                         .push()
+                        // input teksti ja tämän hetkinen käyttäjä lisätään tietokantaan
                         .setValue(new ChatMessage(input.getText().toString(),
                                 FirebaseAuth.getInstance()
                                         .getCurrentUser()
@@ -64,60 +66,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
         }
-
-
-
-
-
-                                   // ref ekaref = new DatabaseReference();
-        //eventsref = ((DatabaseReference) ekaref).child("Beers");
-
-        /*
-        fb_Alcohol =(TextView)findViewById(R.id.textView_Alcohol);
-        fb_Bitterness =(TextView)findViewById(R.id.textView_Bitterness);
-
-
-
-        button_Hae_Olut.setOnClickListener(new View.OnClickListener() {     //button_Hae_Olut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ref1 = FirebaseDatabase.getInstance().getReference().child("Beers").child("1");
-                ref1.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        String sAlcohol=dataSnapshot.child("Alcohol").getValue().toString();
-                        String sBitterness=dataSnapshot.child("Bitterness").getValue().toString();
-
-                        //fb_Alcohol.setText(sAlcohol);
-                        //fb_Bitterness.setText(sBitterness);
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                       // Toast.makeText(getApplicationContext(),"Hello Javatpoint", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-            }
-        });*/
-
-
-
-    //
-
-
-    //
 
 
     public void out(View view) {
@@ -175,13 +124,15 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    // Metodi, jolla näytetään viestit käyttöliittymässä
     private void displayChatMessages() {
 
         ListView listOfMessages = (ListView)findViewById(R.id.list_of_messages);
 
+        // Viitataan firebasen databaseen ja haetaan tiedot "Chat" osiosta
         DatabaseReference chatReference = FirebaseDatabase.getInstance().getReference().child("Chat");
 
-
+        // ListViewille oli tälläinen komento, jossa saadaan ChatMessage model luokasta käyttäjätietojen muuttujat
         FirebaseListOptions<ChatMessage> options = new FirebaseListOptions.Builder<ChatMessage>()
                 .setLayout(R.layout.message)
                 .setQuery(chatReference, ChatMessage.class)

@@ -55,7 +55,7 @@
         android:gravity="center_horizontal"
         android:text="Oluen nimi"
         android:textAlignment="center"
-        style="@style/TextHeader"
+        style="@style/TextMainStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.657"
